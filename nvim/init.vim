@@ -1,116 +1,50 @@
-set encoding=utf-8
-set nocompatible
-filetype off
+set nocompatible        " Be iMproved
+set encoding=utf-8      " Set encoding to be utf-8
+filetype plugin indent on
+
+set showmatch           " Show matching brackets.
+set autoindent          " Indent according to previous line.
+set expandtab           " Use spaces instead of tabs.
+set softtabstop=4       " Tab key indents by 4 spaces.
+set shiftwidth=4        " >> indents by 4 spaces.
+set shiftround          " >> indents to next multiple of 'shiftwidth'.
+
+set backspace=indent,eol,start  " Make backspace work as you would expect.
+set showcmd                     " Show already typed keys when more are expected.
+set incsearch                   " Highlight while searching with / or ?.
+set hlsearch                    " Keep matches highlighted.
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'vim-syntastic/syntastic'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-clang'
-Plug 'Shougo/neoinclude.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdcommenter'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'w0rp/ale'
 call plug#end()
 
-syntax on
-
-let mapleader = "\\"
-map <space> \
-
-set autoread
-
-set showmatch               " Show matching brackets.
-set tabstop=4               " number of columns occupied by a tab character
-set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
-set expandtab               " converts tabs to white space
-set shiftwidth=4            " width for autoindents
-set autoindent              " indent a new line the same amount as the line just typed
-set number                  " add line numbers
-set t_Co=256
-set termguicolors
-
-"syntastic configs
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_c_config_file = '.flags'
-
-"deoplete
-let g:deoplete#enable_at_startup = 1
-autocmd CompleteDone * silent! pclose!
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-set background=dark
+set t_Co=256                " Set colors to 256
+syntax on                   " Enable syntax highlighting.
+set number                  " Set line numbering
 colorscheme gruvbox
 
+set laststatus=2
 set noshowmode
-let g:lightline = { 'colorscheme': 'seoul256' }
+let g:lightline = {'colorscheme': 'one'}
 
-set guifont=Fira\ Code\ Light\ 9
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
+map <C-n> :NERDTreeToggle<CR>
 
-"Cause we hardcore
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-
-nnoremap <C-Right> :vertical resize +5<CR>
-nnoremap <C-Left> :vertical resize -5<CR>
-nnoremap <C-Up> :resize -5<CR>
-nnoremap <C-Down> :resize +5<CR>
-nnoremap <C-c> :nohl<CR>
-
+" Switch around buffers more easily
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-nmap <leader>w :w<cr>
-nmap <leader>q :q<cr>
+" Resize Buffers
+nnoremap <C-Right> :vertical resize +5<CR>
+nnoremap <C-Left> :vertical resize -5<CR>
+nnoremap <C-Up> :resize -5<CR>
+nnoremap <C-Down> :resize +5<CR>
 
-" Close the current buffer
-map <leader>bc :bd<cr>
-
-" Close all the buffers
-map <leader>ba :bufdo bd<cr>
-
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
-
-" Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
-
-map <leader>n :NERDTreeToggle<CR>
-
-imap jk <Esc>
-map <leader>ss :setlocal spell!<cr>
-
-" copy and paste
-vmap <C-c> "+y
-vmap <C-x> "+c
-imap <C-v> <ESC>"+pa
-
-"nmap <C-n> :NERDTreeToggle<CR>
-
-nmap <F5> :w<CR> :make<CR>
-nmap <C-F5> :w<CR> :make rebuild<CR>
-
+nnoremap <C-c> :nohl<CR>    " Clear highlighting
