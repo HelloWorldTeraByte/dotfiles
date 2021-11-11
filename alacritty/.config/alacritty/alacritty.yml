@@ -1,3 +1,22 @@
+font:
+  normal:
+    family: firacode
+    style: Regular
+
+  bold:
+    family: firacode
+    style: Bold
+
+  italic:
+    family: firacode
+    style: Italic
+
+  bold_italic:
+    family: firacode
+    style: Bold Italic
+
+  size: 11
+
 # Colors (Dracula)
 colors:
   # Default colors
