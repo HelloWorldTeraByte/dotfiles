@@ -3,7 +3,7 @@ set encoding=utf-8
 filetype on
 filetype plugin on
 filetype indent on
-syntax on
+syntax enable
 set number
 set cursorline
 set visualbell
@@ -42,6 +42,8 @@ call plug#end()
 
 set background=dark
 colorscheme dracula
+highlight! link SignColumn LineNr
+autocmd ColorScheme * highlight! link SignColumn LineNr
 
 let mapleader = " "
 inoremap jk <Esc>
@@ -56,6 +58,10 @@ let g:lightline = {
             \   'gitbranch': 'FugitiveHead'
             \ },
             \ }
+
+set updatetime=1000
+nmap <leader>hn <Plug>(GitGutterNextHunk)
+nmap <leader>hp <Plug>(GitGutterPrevHunk)
 
 nmap <leader>gs :G<CR>
 nmap <leader>gb :G blame<CR>
