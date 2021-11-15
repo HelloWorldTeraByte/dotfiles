@@ -34,8 +34,13 @@ set wildmode=list:longest
 call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim'
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
+set background=dark
 colorscheme dracula
 
 let mapleader = " "
@@ -43,4 +48,16 @@ inoremap jk <Esc>
 
 let g:lightline = {
             \ 'colorscheme': 'dracula',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+            \ },
+            \ 'component_function': {
+            \   'gitbranch': 'FugitiveHead'
+            \ },
             \ }
+
+nmap <leader>gs :G<CR>
+nmap <leader>gb :G blame<CR>
+nmap <leader>gd :G diff<CR>
+nmap <leader>gl :G log<CR>
