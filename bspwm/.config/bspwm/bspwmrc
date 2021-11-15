@@ -2,19 +2,22 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-monitors=$(xrandr --query | grep " connected" | cut -d" " -f1)
-mon_arr=($monitors)
+mon_con=$(xrandr --query | grep " connected" | cut -d" " -f1)
+mon_arr=($mon_con)
 mon_len=${#mon_arr[@]}
+mon_primary=$(xrandr | grep "primary" | cut -d" " -f1) 
 
-lower=1
-step=$((10/$mon_len))
-upper=$step
-for m in $monitors; do
-    a=( $(seq $lower $upper ) )
-    bspc monitor $m -d ${a[@]}
-    lower=$(($upper+1))
-    upper=$(($upper+$step))
+bspc monitor $mon_primary -d 1 2 3 4 5
+
+for m in ${mon_arr[@]}; do
+    if [ $m != $mon_primary ]; then
+        mon_secondary+=$m
+    fi
 done
+
+if [ $mon_len -eq 2 ]; then
+    bspc monitor ${mon_secondary[0]} -d 6 7 8 9 10
+fi
 
 $HOME/.config/polybar/launch.sh
 #bspc monitor HDMI-0 -d II IV VI VIII X
