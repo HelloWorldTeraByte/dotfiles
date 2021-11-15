@@ -7,15 +7,16 @@ mon_arr=($mon_con)
 mon_len=${#mon_arr[@]}
 mon_primary=$(xrandr | grep "primary" | cut -d" " -f1) 
 
-bspc monitor $mon_primary -d 1 2 3 4 5
-
 for m in ${mon_arr[@]}; do
     if [ $m != $mon_primary ]; then
         mon_secondary+=$m
     fi
 done
 
-if [ $mon_len -eq 2 ]; then
+if [ $mon_len -eq 1 ]; then
+    bspc monitor ${mon_arr[0]} -d 1 2 3 4 5 6 7 8 9 10
+elif [ $mon_len -eq 2 ]; then
+    bspc monitor $mon_primary -d 1 2 3 4 5
     bspc monitor ${mon_secondary[0]} -d 6 7 8 9 10
 fi
 
