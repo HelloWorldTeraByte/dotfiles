@@ -44,6 +44,9 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'hrsh7th/nvim-cmp'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'glepnir/lspsaga.nvim'
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -67,6 +70,10 @@ lua require('config.nvim-cmp')
 " lsp
 lua require('lsp.cpp')
 lua require('config.nvim-lsp')
+
+lua require('config.nvim-treesitter')
+
+" lua require('config.lspsaga')
 
 let g:lightline = {
             \ 'colorscheme': 'dracula',
