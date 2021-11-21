@@ -1,0 +1,51 @@
+snippet doxh "Doxygen file header"
+/**
+ * @file ${1:`!p snip.rv = snip.fn`}
+ * @brief ${2:Short description}
+ * @author ${3:Randipa Gunathilake}
+ * @date ${4:`!p 
+from datetime import datetime
+if not snip.c:
+	snip.rv=datetime.now().strftime("%d/%m/%Y")`}
+ *
+ * ${5:Detailed description}
+ */
+endsnippet
+
+snippet doxc "Doxygen class"
+/**
+ * @brief ${1:Short description}
+ *
+ * ${2:Detailed description}
+ */
+endsnippet
+
+snippet doxf "Doxygen function"
+/**
+ * @brief ${1:Short description}
+ *
+ * ${2:Detailed description}
+ *
+ * @param ${3:param1 param1 is great}
+ *
+ * @return ${4:what are we returning}
+ */
+endsnippet
+
+snippet doxd "Doxygen detailed description"
+/** 
+ * ${1:Short description}
+ *
+ * ${2:Detailed description}
+ */
+endsnippet
+
+snippet doxs "Doxygen short description"
+/** 
+ * ${1:Short description}
+ */
+endsnippet
+
+snippet doxi "Doxygen inline description"
+/**< ${1:Description} */ 
+endsnippet

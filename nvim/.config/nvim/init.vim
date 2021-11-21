@@ -14,6 +14,7 @@ set softtabstop=4
 set expandtab
 
 set nobackup
+set hidden
 
 set scrolloff=10
 set nowrap
@@ -43,7 +44,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'hrsh7th/nvim-cmp'
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'glepnir/lspsaga.nvim'
 
@@ -55,7 +55,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-"Plug 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow'
 call plug#end()
 
 set background=dark
@@ -71,6 +71,7 @@ lua require('config.nvim-cmp')
 lua require('lsp.cpp')
 lua require('config.nvim-lsp')
 
+" nvim treesitter
 lua require('config.nvim-treesitter')
 
 " lua require('config.lspsaga')
@@ -91,19 +92,22 @@ let g:rainbow_active = 1
 
 " git gutter
 set updatetime=1000
-nmap <leader>ghn <Plug>(GitGutterNextHunk)
-nmap <leader>ghp <Plug>(GitGutterPrevHunk)
+nmap <leader>hn <Plug>(GitGutterNextHunk)
+nmap <leader>hp <Plug>(GitGutterPrevHunk)
 
 " fugitive
-nmap <leader>gs :G<CR>
-nmap <leader>gb :G blame<CR>
-nmap <leader>gd :G diff<CR>
-nmap <leader>gl :G log<CR>
+nmap <leader>gs :Git<CR>
+nmap <leader>gb :Git blame<CR>
+nmap <leader>gd :Gdiffsplit<CR>
+nmap <leader>gl :Gclog<CR>
+nmap <leader>gL :Git log<CR>
 
 " FZF
 nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>bb :Buffers<CR>
-nnoremap <silent> <C-f> :Rg<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>fg :Rg<CR>
+nnoremap <silent> <leader>fl :Lines<CR>
+nnoremap <silent> <leader>flb :BLines<CR>
 
 " netrw file explorer
 nnoremap <silent> <leader>ft :Vexplore<CR>
@@ -125,9 +129,9 @@ noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize -3<CR>
 
 " buffers
+nnoremap <silent> <leader>bb :e #<CR>
 nnoremap <silent> <leader>bn :bn<CR>
 nnoremap <silent> <leader>bp :bp<CR>
-nnoremap <silent> <leader>bt <C-^><CR>
 nnoremap <silent> <leader>bd :bd<CR>
 
 " utilsnips
@@ -135,3 +139,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snips"]
+
+nnoremap <leader>S :%s//gc<Left><Left><Left>
+nnoremap \\ :noh<CR>
