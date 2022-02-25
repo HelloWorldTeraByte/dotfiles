@@ -103,11 +103,14 @@ nmap <leader>gl :Gclog<CR>
 nmap <leader>gL :Git log<CR>
 
 " FZF
-nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>ff :GFiles<CR>
 nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>fg :Rg<CR>
 nnoremap <silent> <leader>fl :Lines<CR>
 nnoremap <silent> <leader>flb :BLines<CR>
+
+" LSP
+nnoremap <silent> <leader>lR :LspRestart<CR>
 
 " netrw file explorer
 nnoremap <silent> <leader>ft :Vexplore<CR>
@@ -143,3 +146,7 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snips"]
 
 nnoremap <leader>S :%s//gc<Left><Left><Left>
 nnoremap \\ :noh<CR>
+
+set spelllang=en_nz
+nnoremap <silent> <leader>vs :set spell!<CR>
+set spellsuggest=best,9
