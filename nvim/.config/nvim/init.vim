@@ -56,10 +56,14 @@ Plug 'tpope/vim-surround'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'luochen1990/rainbow'
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
 set background=dark
 colorscheme dracula
+set termguicolors
 
 let mapleader = " "
 inoremap jk <Esc>
@@ -75,6 +79,12 @@ lua require('config.nvim-lsp')
 lua require('config.nvim-treesitter')
 
 " lua require('config.lspsaga')
+"
+" nvim tree
+lua require('config.nvim-tree')
+
+lua require('config.keybindings')
+
 
 let g:lightline = {
             \ 'colorscheme': 'dracula',
