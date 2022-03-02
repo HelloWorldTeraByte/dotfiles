@@ -9,11 +9,13 @@ vim.g.nvim_tree_symlink_arrow = ' >> ' -- defaults to ' ➛ '. used as a separat
 vim.g.nvim_tree_respect_buf_cwd = 1 -- 0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
 vim.g.nvim_tree_create_in_closed_folder = 1 -- 0 by default, When creating files, sets the path of a file when cursor is on a closed folder to the parent folder when 0, and inside the folder when 1.
 
--- List of filenames that gets highlighted with NvimTreeSpecialFile
+--List of filenames that gets highlighted with NvimTreeSpecialFile
 vim.g.nvim_tree_special_files = { 
-    ["README.md"] = 1, 
-    ["Makefile"] = 1, 
-    ["MAKEFILE"] = 1 
+    -- ["Readme.md"] = 0, 
+    -- ["readme.md"] = 0, 
+    -- ["README.md"] = 0, 
+    -- ["Makefile"] = 0, 
+    -- ["MAKEFILE"] = 0 
 } 
 
 vim.g.nvim_tree_show_icons = {
