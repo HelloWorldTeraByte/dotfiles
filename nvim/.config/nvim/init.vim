@@ -69,6 +69,7 @@ lua require('config.nvim-cmp')
 
 " lsp
 lua require('lsp.cpp')
+lua require('lsp.python')
 lua require('config.nvim-lsp')
 
 " nvim treesitter
