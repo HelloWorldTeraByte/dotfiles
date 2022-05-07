@@ -34,7 +34,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'clangd' }
+local servers = { 'clangd', 'pyright' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
@@ -44,8 +44,8 @@ for _, lsp in ipairs(servers) do
     }
 end
 
-local signs = { Error = "", Warning = "", Hint = "", Information = "" }
-for type, icon in pairs(signs) do
-    local hl = "LspDiagnosticsSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+-- local signs = { Error = "", Warning = "", Hint = "", Information = "" }
+-- for type, icon in pairs(signs) do
+--     local hl = "LspDiagnosticsSign" .. type
+--     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+-- end
