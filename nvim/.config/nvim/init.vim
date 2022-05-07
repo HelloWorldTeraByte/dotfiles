@@ -59,6 +59,8 @@ Plug 'luochen1990/rainbow'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
+
+Plug 'puremourning/vimspector'
 call plug#end()
 
 set background=dark
@@ -104,6 +106,7 @@ let g:rainbow_active = 1
 set updatetime=1000
 nmap <leader>hn <Plug>(GitGutterNextHunk)
 nmap <leader>hp <Plug>(GitGutterPrevHunk)
+nmap <leader>hh <Plug>(GitGutterPrevHunk)
 
 " fugitive
 nmap <leader>gs :Git<CR>
@@ -121,6 +124,26 @@ nnoremap <silent> <leader>flb :BLines<CR>
 
 " LSP
 nnoremap <silent> <leader>lR :LspRestart<CR>
+
+" vimspector
+let g:vimspector_install_gadgets = ['vscode-cpptools']
+nmap <leader>dd <Plug>VimspectorToggleBreakpoint
+nmap <leader>dbc <Plug>VimspectorToggleConditionalBreakpoints
+nmap <leader>db <Plug>VimspectorBreakpoints
+
+nmap <leader>do <Plug>VimspectorStepOver
+nmap <leader>di <Plug>VimspectorStepInto
+nmap <leader>dt <Plug>VimspectorStepOut
+
+nmap <leader>dc <Plug>VimspectorContinue
+nmap <leader>ds <Plug>VimspectorStop
+""nmap <leader>dq <Plug>VimspectorReset
+nmap <leader>dq :VimspectorReset<CR>
+nmap <leader>dr <Plug>VimspectorRestart
+nmap <leader>dp <Plug>VimspectorPause
+
+nmap <Leader>dv <Plug>VimspectorBalloonEval
+xmap <Leader>dv <Plug>VimspectorBalloonEval
 
 " netrw file explorer
 nnoremap <silent> <leader>ft :Vexplore<CR>
@@ -147,6 +170,10 @@ nnoremap <silent> <leader>bn :bn<CR>
 nnoremap <silent> <leader>bp :bp<CR>
 nnoremap <silent> <leader>bd :bd<CR>
 
+" tabs
+nnoremap <silent> <leader>tn :tabnext<CR>
+nnoremap <silent> <leader>tp :tabprevious<CR>
+
 " utilsnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -156,6 +183,7 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snips"]
 
 nnoremap <leader>S :%s//gc<Left><Left><Left>
 nnoremap \\ :noh<CR>
+
 
 set spelllang=en_nz
 nnoremap <silent> <leader>vs :set spell!<CR>
