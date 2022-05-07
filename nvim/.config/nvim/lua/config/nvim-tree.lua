@@ -59,7 +59,7 @@ vim.g.nvim_tree_icons = {
        }
 }
 
-vim.cmd([[highlight NvimTreeFolderIcon guibg=blue]])
+-- vim.cmd([[highlight NvimTreeFolderIcon guibg=blue]])
 
 -- set termguicolors " this variable must be enabled for colors to be applied properly
 
