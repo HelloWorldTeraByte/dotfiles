@@ -60,3 +60,8 @@ nnoremap <silent> <leader>b :call VSCodeNotify('workbench.action.quickOpenPrevio
 nnoremap <silent> <leader>f :call VSCodeNotify('editor.action.formatDocument')<CR>
 
 nnoremap <silent> <leader>vb :call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
+
+nnoremap <silent> <leader>sn :call VSCodeNotify('cSpell.goToNextSpellingIssue')<CR>
+nnoremap <silent> <leader>sp :call VSCodeNotify('cSpell.goToPreviousSpellingIssue')<CR>
+nnoremap <silent> <leader>sc :call VSCodeNotify('cSpell.suggestSpellingCorrections')<CR>
+nnoremap <silent> <leader>ss :call VSCodeNotify('cSpell.toggleEnableSpellChecker')<CR>
