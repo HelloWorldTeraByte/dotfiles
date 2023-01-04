@@ -53,8 +53,8 @@ xnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
 
 nnoremap <silent> gr :call VSCodeNotify('editor.action.rename')<CR>
 
-"nnoremap <silent> <leader>bn :call VSCodeNotify('workbench.action.nextEditor')<CR>
-"nnoremap <silent> <leader>bp :call VSCodeNotify('workbench.action.previousEditor')<CR>
+nnoremap <silent> <leader>bn :call VSCodeNotify('workbench.action.nextEditor')<CR>
+nnoremap <silent> <leader>bp :call VSCodeNotify('workbench.action.previousEditor')<CR>
 nnoremap <silent> <leader>b :call VSCodeNotify('workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup')<CR>
 
 nnoremap <silent> <leader>f :call VSCodeNotify('editor.action.formatDocument')<CR>
