@@ -39,9 +39,6 @@ nmap gc  <Plug>VSCodeCommentary
 omap gc  <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
 
-nnoremap <silent> <leader>cb :call VSCodeNotify('editor.action.blockComment')<CR>
-xnoremap <silent> <leader>cb :call VSCodeNotify('editor.action.blockComment')<CR>
-
 nnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
 xnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
 nnoremap <silent> <C-k> :call VSCodeNotify('workbench.action.navigateUp')<CR>
@@ -57,6 +54,11 @@ nnoremap <silent> <leader>bn :call VSCodeNotify('workbench.action.nextEditor')<C
 nnoremap <silent> <leader>bp :call VSCodeNotify('workbench.action.previousEditor')<CR>
 nnoremap <silent> <leader>b :call VSCodeNotify('workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup')<CR>
 
-nnoremap <silent> <leader>f :call VSCodeNotify('editor.action.formatDocument')<CR>
+"nnoremap <silent> <leader>f :call VSCodeNotify('editor.action.formatDocument')<CR>
 
 nnoremap <silent> <leader>vb :call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
+
+nnoremap <silent> <leader>sn :call VSCodeNotify('cSpell.goToNextSpellingIssue')<CR>
+nnoremap <silent> <leader>sp :call VSCodeNotify('cSpell.goToPreviousSpellingIssue')<CR>
+nnoremap <silent> <leader>sc :call VSCodeNotify('cSpell.suggestSpellingCorrections')<CR>
+nnoremap <silent> <leader>ss :call VSCodeNotify('cSpell.toggleEnableSpellChecker')<CR>
