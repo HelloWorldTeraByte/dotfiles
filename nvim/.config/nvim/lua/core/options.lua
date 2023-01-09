@@ -14,6 +14,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
 
+vim.opt.signcolumn = 'yes'
+
 vim.opt.cursorline = true
 
 vim.opt.updatetime = 250
