@@ -41,6 +41,9 @@ vim.keymap.set('n', '<leader>gdc', ':DiffviewClose<CR>')
 
 vim.keymap.set('n', '<leader>rf', ':silent !cargo fmt<CR>')
 
+vim.keymap.set('n', '<leader>cf', ':pyf $CLANG_FORMAT_DIR/clang-format.py<CR>')
+vim.keymap.set('v', '<leader>cf', ':pyf $CLANG_FORMAT_DIR/clang-format.py<CR>')
+
 vim.keymap.set("n", "<leader>ss", function()
   vim.o.spell = not vim.o.spell
 end)
