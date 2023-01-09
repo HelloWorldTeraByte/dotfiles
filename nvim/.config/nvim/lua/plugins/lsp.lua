@@ -1,6 +1,16 @@
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
+lsp.ensure_installed({
+  'rust_analyzer',
+  'clangd',
+  'sumneko_lua',
+})
+
+lsp.configure('clangd', {
+    cmd = {"clangd", "--query-driver=/usr/bin/*g++*"},
+})
+
 lsp.setup()
 
 require('lsp-inlayhints').setup()
