@@ -130,7 +130,7 @@ null_ls.setup({
     null_ls.builtins.formatting.clang_format,
     null_ls.builtins.diagnostics.cppcheck,
     null_ls.builtins.diagnostics.cpplint.with({
-        args = {'--filter=-build/header_guard', '$FILENAME'},
+      args = { '--filter=-build/header_guard', '$FILENAME' },
     }),
 
     null_ls.builtins.formatting.rustfmt,
