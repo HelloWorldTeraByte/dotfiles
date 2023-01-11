@@ -50,6 +50,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     'rust_analyzer',
     'clangd',
+    'pyright',
     'sumneko_lua',
   }
 })
@@ -68,7 +69,7 @@ vim.fn.sign_define(
 
 vim.fn.sign_define(
   'DiagnosticSignInfo',
-  { text = '', texthl = 'DiagnosticSignInfo' }
+  { text = '🛈', texthl = 'DiagnosticSignInfo' }
 )
 
 vim.fn.sign_define(
@@ -77,7 +78,7 @@ vim.fn.sign_define(
 )
 
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<leader>le', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<leader>lo', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '<leader>lp', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', '<leader>ln', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader>lq', vim.diagnostic.setloclist, opts)
