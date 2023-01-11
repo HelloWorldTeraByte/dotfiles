@@ -9,4 +9,3 @@ require('plugins.gitsigns')
 require('plugins.lsp')
 require('plugins.lualine')
 require('plugins.comment')
-

@@ -1,7 +1,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set('i', 'jj', '<ESC>')
+vim.keymap.set('i', 'jk', '<ESC>')
 
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-j>', '<C-w>j')
@@ -23,10 +23,8 @@ vim.keymap.set('n', '<leader>tp', ':tabprev<CR>')
 
 vim.keymap.set('n', '<leader>sc', ':nohl<CR>')
 
-vim.keymap.set('n', '<leader>d', '\"_d')
-vim.keymap.set('v', '<leader>d', '\"_d')
-vim.keymap.set('n', '<leader>D', '\"_D')
-vim.keymap.set('v', '<leader>D', '\"_D')
+vim.keymap.set({ 'n', 'v' }, '<leader>d', '\"_d')
+vim.keymap.set({ 'n', 'v' }, '<leader>D', '\"_D')
 
 vim.keymap.set('n', '<leader>nn', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>nr', ':NvimTreeRefresh<CR>')
@@ -41,10 +39,6 @@ vim.keymap.set('n', '<leader>gdc', ':DiffviewClose<CR>')
 
 vim.keymap.set('n', '<leader>rf', ':silent !cargo fmt<CR>')
 
-vim.keymap.set('n', '<leader>cf', ':pyf $CLANG_FORMAT_DIR/clang-format.py<CR>')
-vim.keymap.set('v', '<leader>cf', ':pyf $CLANG_FORMAT_DIR/clang-format.py<CR>')
-
-vim.keymap.set("n", "<leader>ss", function()
+vim.keymap.set('n', '<leader>ss', function()
   vim.o.spell = not vim.o.spell
 end)
-
