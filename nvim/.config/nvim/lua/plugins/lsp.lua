@@ -54,11 +54,33 @@ require('mason-lspconfig').setup({
   }
 })
 
+vim.diagnostic.config({ virtual_text = false })
+
+vim.fn.sign_define(
+  'DiagnosticSignError',
+  { text = '✘', texthl = 'DiagnosticSignError' }
+)
+
+vim.fn.sign_define(
+  'DiagnosticSignWarn',
+  { text = '⚠', texthl = 'DiagnosticSignWarn' }
+)
+
+vim.fn.sign_define(
+  'DiagnosticSignInfo',
+  { text = '', texthl = 'DiagnosticSignInfo' }
+)
+
+vim.fn.sign_define(
+  'DiagnosticSignHint',
+  { text = '⚑', texthl = 'DiagnosticSignHint' }
+)
+
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+vim.keymap.set('n', '<leader>le', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<leader>lp', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<leader>ln', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<leader>lq', vim.diagnostic.setloclist, opts)
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -75,9 +97,9 @@ local lsp_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
-  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', '<leader>lD', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<leader>cf', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
@@ -107,12 +129,13 @@ null_ls.setup({
 
     null_ls.builtins.formatting.clang_format,
     null_ls.builtins.diagnostics.cppcheck,
-    null_ls.builtins.diagnostics.cpplint,
+    null_ls.builtins.diagnostics.cpplint.with({
+        args = {'--filter=-build/header_guard', '$FILENAME'},
+    }),
 
     null_ls.builtins.formatting.rustfmt,
   },
 })
-
 
 require('lsp-inlayhints').setup()
 
