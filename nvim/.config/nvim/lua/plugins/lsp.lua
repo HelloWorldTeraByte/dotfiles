@@ -108,10 +108,11 @@ local lspconfig = require('lspconfig')
 require('mason-lspconfig').setup_handlers({
   function(server_name)
     if server_name == 'clangd' then
+      lsp_capabilities.offsetEncoding = 'utf-8'
       lspconfig['clangd'].setup({
         on_attach = lsp_attach,
         capabilities = lsp_capabilities,
-        cmd = { 'clangd', '--query-driver=/usr/bin/*g++*' },
+        cmd = { 'clangd', '--clang-tidy', '--query-driver=/usr/bin/*g++*' },
       })
     else
       lspconfig[server_name].setup({
