@@ -14,6 +14,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
 
+vim.opt.signcolumn = 'yes'
+
 vim.opt.cursorline = true
 
 vim.opt.updatetime = 250
@@ -27,4 +29,3 @@ vim.opt.splitbelow = true
 
 vim.opt.spelllang = 'en_us'
 vim.opt.spelloptions = 'camel'
-
