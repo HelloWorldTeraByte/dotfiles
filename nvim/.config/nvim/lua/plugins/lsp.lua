@@ -101,7 +101,7 @@ local lsp_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>lD', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', '<leader>cf', function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 local lspconfig = require('lspconfig')
@@ -123,8 +123,8 @@ require('mason-lspconfig').setup_handlers({
   end,
 })
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require('null-ls')
-
 null_ls.setup({
   sources = {
     null_ls.builtins.completion.spell,
@@ -137,6 +137,18 @@ null_ls.setup({
 
     null_ls.builtins.formatting.rustfmt,
   },
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = bufnr })
+        end,
+      })
+    end
+  end,
 })
 
 require('lsp-inlayhints').setup()
