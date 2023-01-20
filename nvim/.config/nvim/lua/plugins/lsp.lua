@@ -83,7 +83,6 @@ vim.keymap.set('n', '<leader>lp', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', '<leader>ln', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader>lq', vim.diagnostic.setloclist, opts)
 
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lsp_attach = function(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -108,13 +107,15 @@ local lspconfig = require('lspconfig')
 require('mason-lspconfig').setup_handlers({
   function(server_name)
     if server_name == 'clangd' then
-      lsp_capabilities.offsetEncoding = 'utf-8'
+      local clangd_capabilities = require('cmp_nvim_lsp').default_capabilities()
+      clangd_capabilities.offsetEncoding = 'utf-8'
       lspconfig['clangd'].setup({
         on_attach = lsp_attach,
-        capabilities = lsp_capabilities,
+        capabilities = clangd_capabilities,
         cmd = { 'clangd', '--clang-tidy', '--query-driver=/usr/bin/*g++*' },
       })
     else
+      local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
       lspconfig[server_name].setup({
         on_attach = lsp_attach,
         capabilities = lsp_capabilities,
