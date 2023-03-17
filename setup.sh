@@ -1,6 +1,7 @@
 #!/bin/sh
 
 stow nvim
+stow helix
 stow alacritty
 stow bspwm
 stow polybar
