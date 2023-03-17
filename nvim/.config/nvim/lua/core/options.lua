@@ -29,3 +29,4 @@ vim.opt.splitbelow = true
 
 vim.opt.spelllang = 'en_us'
 vim.opt.spelloptions = 'camel'
+vim.o.spell = true
