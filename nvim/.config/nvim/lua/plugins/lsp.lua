@@ -131,7 +131,12 @@ null_ls.setup({
     null_ls.builtins.completion.spell,
 
     null_ls.builtins.formatting.clang_format,
-    null_ls.builtins.diagnostics.cppcheck,
+
+    -- This is not always true.
+    null_ls.builtins.diagnostics.cppcheck.with({
+      args = { '--language=c++', '$FILENAME' },
+    }),
+
     null_ls.builtins.diagnostics.cpplint.with({
       args = { '--filter=-build/header_guard,-runtime/references', '$FILENAME' },
     }),
