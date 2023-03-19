@@ -7,4 +7,12 @@ config = {}
 
 [[language]]
 name = "cpp"
+roots = [ ".clangd",
+          ".clang-tidy",
+          ".clang-format",
+          "compile_commands.json",
+          "compile_flags.txt",
+          "configure.ac",
+          ".git"]
+language-server = { command = "clangd", args = ["--clang-tidy", "--query-driver=/usr/bin/*g++*"] }
 auto-format = true
