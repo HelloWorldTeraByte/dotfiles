@@ -3,6 +3,8 @@ theme = "gruvbox"
 [editor]
 line-number = "relative"
 
+lsp.display-inlay-hints = true
+
 [editor.cursor-shape]
 insert = "bar"
 
