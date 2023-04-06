@@ -10,3 +10,4 @@ stow rofi
 stow sxhkd
 stow x
 stow zsh
+stow zellij
