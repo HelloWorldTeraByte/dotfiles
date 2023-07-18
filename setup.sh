@@ -11,3 +11,4 @@ stow sxhkd
 stow x
 stow zsh
 stow zellij
+stow starship
