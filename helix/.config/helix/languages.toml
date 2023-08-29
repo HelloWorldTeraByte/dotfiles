@@ -1,9 +1,23 @@
 [[language]]
 name = "python"
-language-server = { command = "pyright-langserver", args = ["--stdio"] }
+roots = [ "pyproject.toml",
+          "pylintrc",
+          ".git" ]
+language-server = { command = "pylsp" }
+formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
-formatter = { command = "black" , args = ["--quiet", "-"] }
-config = {}
+
+[language.config.pylsp.plugins]
+pylint = { enabled = true }
+
+flake8 = { enabled = false }
+rope = { enabled = false }
+pyflakes = { enabled = false }
+mccabe = { enabled = false }
+pycodestyle = { enabled = false }
+pydocstyle = { enabled = false }
+autopep8 = { enabled = false }
+yapf = { enabled = false }
 
 [[language]]
 name = "cpp"
@@ -13,6 +27,10 @@ roots = [ ".clangd",
           "compile_commands.json",
           "compile_flags.txt",
           "configure.ac",
-          ".git"]
+          ".git" ]
 language-server = { command = "clangd", args = ["--clang-tidy", "--query-driver=/usr/bin/*g++*"] }
 auto-format = true
+
+[[language]]
+name = "markdown"
+language-server = { command = "ltex-ls" }
