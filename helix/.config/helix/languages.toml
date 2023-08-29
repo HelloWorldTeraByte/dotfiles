@@ -3,7 +3,7 @@ name = "python"
 roots = [ "pyproject.toml",
           "setup.py",
           "poetry.lock",
-          "pyrightconfig.json"
+          "pyrightconfig.json",
           "pylintrc",
           ".git" ]
 language-server = { command = "pylsp" }
