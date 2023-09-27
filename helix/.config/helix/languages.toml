@@ -6,21 +6,8 @@ roots = [ "pyproject.toml",
           "pyrightconfig.json",
           "pylintrc",
           ".git" ]
-language-server = { command = "pylsp" }
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
-
-[language.config.pylsp.plugins]
-pylint = { enabled = true }
-
-flake8 = { enabled = false }
-rope = { enabled = false }
-pyflakes = { enabled = false }
-mccabe = { enabled = false }
-pycodestyle = { enabled = false }
-pydocstyle = { enabled = false }
-autopep8 = { enabled = false }
-yapf = { enabled = false }
 
 [[language]]
 name = "cpp"
@@ -31,20 +18,22 @@ roots = [ ".clangd",
           "compile_flags.txt",
           "configure.ac",
           ".git" ]
-language-server = { command = "clangd", args = ["--clang-tidy", "--query-driver=/usr/bin/*g++*"] }
 auto-format = true
 
 [[language]]
 name = "html"
 formatter = { command = 'prettier', args = ["--parser", "html"] }
+auto-format = true
 
 [[language]]
 name = "json"
 formatter = { command = 'prettier', args = ["--parser", "json"] }
+auto-format = true
 
 [[language]]
 name = "css"
 formatter = { command = 'prettier', args = ["--parser", "css"] }
+auto-format = true
 
 [[language]]
 name = "javascript"
@@ -66,6 +55,16 @@ name = "tsx"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
-[[language]]
-name = "markdown"
-language-server = { command = "ltex-ls" }
+[language-server.pylsp.config]
+pylsp.plugins.pylint.enabled = true
+pylsp.plugins.flake8.enabled = false
+pylsp.plugins.rope.enabled = false
+pylsp.plugins.pyflakes.enabled = false
+pylsp.plugins.mccabe.enabled = false
+pylsp.plugins.pycodestyle.enabled = false
+pylsp.plugins.pydocstyle.enabled = false
+pylsp.plugins.autopep8.enabled = false
+pylsp.plugins.yapf.enabled = false
+
+[language-server.clangd]
+args = [ "--clang-tidy", "--query-driver=/usr/bin/*g++*" ]
