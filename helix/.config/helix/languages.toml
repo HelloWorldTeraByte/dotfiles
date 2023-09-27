@@ -1,4 +1,8 @@
 [[language]]
+name = "rust"
+language-servers = [ "rust-analyzer", "lsp-cspell" ]
+
+[[language]]
 name = "python"
 roots = [ "pyproject.toml",
           "setup.py",
@@ -6,6 +10,7 @@ roots = [ "pyproject.toml",
           "pyrightconfig.json",
           "pylintrc",
           ".git" ]
+language-servers = [ "pylsp", "lsp-cspell" ]
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
 
@@ -18,6 +23,7 @@ roots = [ ".clangd",
           "compile_flags.txt",
           "configure.ac",
           ".git" ]
+language-servers = [ "clangd", "lsp-cspell" ]
 auto-format = true
 
 [[language]]
@@ -37,23 +43,31 @@ auto-format = true
 
 [[language]]
 name = "javascript"
+language-servers = [ "typescript-language-server", "lsp-cspell" ]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "jsx"
+language-servers = [ "typescript-language-server", "lsp-cspell" ]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "typescript"
+language-servers = [ "typescript-language-server", "lsp-cspell" ]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "tsx"
+language-servers = [ "typescript-language-server", "lsp-cspell" ]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
+
+[[language]]
+name = "markdown"
+language-servers = [ "marksman", "lsp-cspell" ]
 
 [language-server.pylsp.config]
 pylsp.plugins.pylint.enabled = true
@@ -68,3 +82,36 @@ pylsp.plugins.yapf.enabled = false
 
 [language-server.clangd]
 args = [ "--clang-tidy", "--query-driver=/usr/bin/*g++*" ]
+
+[language-server.lsp-cspell]
+command = "lsp-cspell"
+
+[language-server.lsp-cspell.config]
+cSpell.enabled = true
+cSpell.language = "en"
+cSpell.enabledLanguageIds = [
+          "bibtex",
+          "clojure",
+          "c",
+          "cpp",
+          "dockercompose",
+          "css",
+          "dockerfile",
+          "go",
+          "html",
+          "javascript",
+          "javascriptreact",
+          "json",
+          "jsonc",
+          "latex",
+          "makefile",
+          "markdown",
+          "plaintext",
+          "python",
+          "rust",
+          "scss",
+          "typescript",
+          "typescriptreact",
+          "xml",
+          "yaml",
+]
