@@ -190,3 +190,10 @@ mode "$mode_system" {
 bindsym $mod+BackSpace mode "$mode_system"
 
 exec --no-startup-id feh --no-fehbg --bg-fill $HOME/Pictures/wallpaper1.png
+
+default_border pixel
+default_floating_border pixel
+
+bindsym $mod+Ctrl+Shift+1 exec $HOME/.screenlayout/work_mul_mon.sh
+bindsym $mod+Ctrl+Shift+2 exec $HOME/.screenlayout/work_laptop.sh
+bindsym $mod+Ctrl+Shift+3 exec $HOME/.screenlayout/home.sh
