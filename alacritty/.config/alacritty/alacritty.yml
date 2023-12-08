@@ -23,4 +23,4 @@ window:
     y: 4
 
 import:
- - ~/.config/alacritty/themes/gruvbox_dark.yaml
+ - ~/.config/alacritty/themes/gruvbox_dark.yml
