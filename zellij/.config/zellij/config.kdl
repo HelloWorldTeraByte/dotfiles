@@ -2,37 +2,43 @@ pane_frames false
 simplified_ui true
 
 keybinds {
-	normal {
-		unbind "Ctrl g" // default locked
-		unbind "Ctrl p" // default pane
-		unbind "Ctrl t" // default tab
-		unbind "Ctrl n" // default resize
-		unbind "Ctrl h" // default move
-		unbind "Ctrl s" // default search
-		unbind "Ctrl o" // default session
-		unbind "Ctrl q" // default quit
-		
-		bind "Alt g" { SwitchToMode "locked"; }
-		bind "Alt p" { SwitchToMode "pane"; }
-		bind "Alt t" { SwitchToMode "tab"; }
-		bind "Alt e" { SwitchToMode "resize"; }
-		bind "Alt v" { SwitchToMode "move"; }
-		bind "Alt f" { SwitchToMode "search"; }
-		bind "Alt o" { SwitchToMode "session"; }
-		bind "Alt q" { Quit; }
+    normal {
+        unbind "Ctrl g" // default locked
+        unbind "Ctrl p" // default pane
+        unbind "Ctrl t" // default tab
+        unbind "Ctrl n" // default resize
+        unbind "Ctrl h" // default move
+        unbind "Ctrl s" // default search
+        unbind "Ctrl o" // default session
+        unbind "Ctrl q" // default quit
+        
+        bind "Alt g" { SwitchToMode "locked"; }
+        bind "Alt p" { SwitchToMode "pane"; }
+        bind "Alt t" { SwitchToMode "tab"; }
+        bind "Alt e" { SwitchToMode "resize"; }
+        bind "Alt v" { SwitchToMode "move"; }
+        bind "Alt f" { SwitchToMode "search"; }
+        bind "Alt o" { SwitchToMode "session"; }
+        bind "Alt s" { SwitchToMode "scroll"; }
+        bind "Alt q" { Quit; }
 
-		bind "Alt 1" { GoToTab 1; }
-		bind "Alt 2" { GoToTab 2; }
-		bind "Alt 3" { GoToTab 3; }
-		bind "Alt 4" { GoToTab 4; }
-		bind "Alt 5" { GoToTab 5; }
-		bind "Alt 6" { GoToTab 6; }
-		bind "Alt 7" { GoToTab 7; }
-		bind "Alt 8" { GoToTab 8; }
-		bind "Alt 9" { GoToTab 9; }
+        bind "Alt 1" { GoToTab 1; }
+        bind "Alt 2" { GoToTab 2; }
+        bind "Alt 3" { GoToTab 3; }
+        bind "Alt 4" { GoToTab 4; }
+        bind "Alt 5" { GoToTab 5; }
+        bind "Alt 6" { GoToTab 6; }
+        bind "Alt 7" { GoToTab 7; }
+        bind "Alt 8" { GoToTab 8; }
+        bind "Alt 9" { GoToTab 9; }
 
-		bind "Alt 0" { ToggleTab; }
-	}
+        bind "Alt 0" { ToggleTab; }
+    }
+
+    locked {
+        unbind "Ctrl g"
+        bind "Alt g" { SwitchToMode "Normal"; }
+    }
 }
 
 theme "gruvbox-dark"
