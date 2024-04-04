@@ -1,6 +1,6 @@
 [[language]]
 name = "rust"
-language-servers = [ "rust-analyzer", "lsp-cspell" ]
+language-servers = [ "rust-analyzer", "cspell-lsp" ]
 
 [[language]]
 name = "python"
@@ -10,7 +10,7 @@ roots = [ "pyproject.toml",
           "pyrightconfig.json",
           "pylintrc",
           ".git" ]
-language-servers = [ "pylsp", "lsp-cspell" ]
+language-servers = [ "pylsp", "cspell-lsp" ]
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
 
@@ -23,7 +23,7 @@ roots = [ ".clangd",
           "compile_flags.txt",
           "configure.ac",
           ".git" ]
-language-servers = [ "clangd", "lsp-cspell" ]
+language-servers = [ "clangd", "cspell-lsp" ]
 auto-format = true
 
 [[language]]
@@ -43,31 +43,31 @@ auto-format = true
 
 [[language]]
 name = "javascript"
-language-servers = [ "typescript-language-server", "lsp-cspell" ]
+language-servers = [ "typescript-language-server", "cspell-lsp" ]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "jsx"
-language-servers = [ "typescript-language-server", "lsp-cspell" ]
+language-servers = [ "typescript-language-server", "cspell-lsp" ]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "typescript"
-language-servers = [ "typescript-language-server", "lsp-cspell" ]
+language-servers = [ "typescript-language-server", "cspell-lsp" ]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "tsx"
-language-servers = [ "typescript-language-server", "lsp-cspell" ]
+language-servers = [ "typescript-language-server", "cspell-lsp" ]
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
 name = "markdown"
-language-servers = [ "marksman", "lsp-cspell" ]
+language-servers = [ "marksman", "cspell-lsp" ]
 
 [language-server.pylsp.config]
 pylsp.plugins.pylint.enabled = true
@@ -81,12 +81,14 @@ pylsp.plugins.autopep8.enabled = false
 pylsp.plugins.yapf.enabled = false
 
 [language-server.clangd]
-args = [ "--clang-tidy", "--query-driver=/usr/bin/*g++*" ]
+args = [ "--clang-tidy", "--query-driver=/home/hwtb/programs/gcc-arm/bin/arm-none-eabi-g++" ]
 
-[language-server.lsp-cspell]
-command = "lsp-cspell"
+[language-server.cspell-lsp]
+command = "cspell-lsp"
+args = [ "--stdio" ]
 
-[language-server.lsp-cspell.config]
+# https://github.com/vlabo/cspell-lsp
+[language-server.cspell-lsp.config]
 cSpell.enabled = true
 cSpell.language = "en"
 cSpell.enabledLanguageIds = [
@@ -115,3 +117,4 @@ cSpell.enabledLanguageIds = [
           "xml",
           "yaml",
 ]
+cSpell.customDictionaries = { myWords = { name = "myWords", path = "~/cspell_lsp_words.txt" } }
