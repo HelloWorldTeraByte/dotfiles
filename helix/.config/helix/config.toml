@@ -2,8 +2,8 @@ theme = "gruvbox"
 
 [editor]
 line-number = "relative"
-
-lsp.display-inlay-hints = true
+undercurl = true
+# end-of-line-diagnostics = "hint"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -13,3 +13,10 @@ C-h = "jump_view_left"
 C-j = "jump_view_down"
 C-k = "jump_view_up"
 C-l = "jump_view_right"
+
+# [editor.inline-diagnostics]
+# cursor-line = "hint"
+# other-lines = "disable"
+
+[editor.lsp]
+display-inlay-hints = true
