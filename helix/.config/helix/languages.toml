@@ -27,6 +27,18 @@ language-servers = [ "clangd", "cspell-lsp" ]
 auto-format = true
 
 [[language]]
+name = "c"
+roots = [ ".clangd",
+          ".clang-tidy",
+          ".clang-format",
+          "compile_commands.json",
+          "compile_flags.txt",
+          "configure.ac",
+          ".git" ]
+language-servers = [ "clangd", "cspell-lsp" ]
+auto-format = true
+
+[[language]]
 name = "html"
 formatter = { command = 'prettier', args = ["--parser", "html"] }
 auto-format = true
@@ -151,7 +163,7 @@ pylsp.plugins.autopep8.enabled = false
 pylsp.plugins.yapf.enabled = false
 
 [language-server.clangd]
-args = [ "--clang-tidy", "--query-driver=/home/hwtb/programs/gcc-arm/bin/arm-none-eabi-g++" ]
+args = [ "--clang-tidy", "--query-driver=/usr/bin/arm-none-eabi-g*" ]
 
 [language-server.cspell-lsp]
 command = "cspell-lsp"
