@@ -3,6 +3,7 @@ theme = "gruvbox"
 [editor]
 line-number = "relative"
 undercurl = true
+true-color = true
 # end-of-line-diagnostics = "hint"
 
 [editor.cursor-shape]
