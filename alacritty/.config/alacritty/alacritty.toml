@@ -2,19 +2,19 @@
 size = 10
 
 [font.bold]
-family = "SauceCodePro Nerd Font Mono"
+family = "JetBrainsMonoNL Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "SauceCodePro Nerd Font Mono"
+family = "JetBrainsMonoNL Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "SauceCodePro Nerd Font Mono"
+family = "JetBrainsMonoNL Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "SauceCodePro Nerd Font Mono"
+family = "JetBrainsMonoNL Nerd Font Mono"
 style = "Regular"
 
 [window.padding]
