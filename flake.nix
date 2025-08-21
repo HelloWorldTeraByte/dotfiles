@@ -11,17 +11,14 @@
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
-    in
-    {
+    in {
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;
           modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager
-            {
-              home-manager.users.hwtb = ./home.nix;
-            }
+            { home-manager.users.hwtb = ./home.nix; }
           ];
         };
       };

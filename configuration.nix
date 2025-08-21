@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -42,16 +42,12 @@
     LC_TIME = "en_NZ.UTF-8";
   };
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
+  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
   services.xserver = {
     enable = true;
 
-    windowManager.i3 = {
-      enable = true;
-    };
+    windowManager.i3 = { enable = true; };
 
     # Configure keymap in X11
     xkb = {
@@ -65,7 +61,7 @@
     isNormalUser = true;
     description = "hwtb";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
     shell = pkgs.fish;
   };
 
@@ -92,6 +88,8 @@
     gcc
     clang
     rustup
+    nixd
+    nixfmt
 
     firefox
   ];

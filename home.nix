@@ -78,9 +78,7 @@
     HELIX_RUNTIME = "$HOME/programs/helix/runtime";
   };
 
-  home.sessionPath = [
-    "$HOME/programs/helix/target/release"
-  ];
+  home.sessionPath = [ "$HOME/programs/helix/target/release" ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
