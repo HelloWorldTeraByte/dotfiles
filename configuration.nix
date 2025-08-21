@@ -89,6 +89,10 @@
     alacritty
     zellij
 
+    gcc
+    clang
+    rustup
+
     firefox
   ];
 

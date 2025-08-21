@@ -48,6 +48,7 @@
     ".config/rofi".source = ./rofi/.config/rofi;
     ".config/alacritty".source = ./alacritty/.config/alacritty;
     ".config/zellij".source = ./zellij/.config/zellij;
+    ".config/helix".source = ./helix/.config/helix;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -74,7 +75,12 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    HELIX_RUNTIME = "$HOME/programs/helix/runtime";
   };
+
+  home.sessionPath = [
+    "$HOME/programs/helix/target/release"
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
