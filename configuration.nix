@@ -92,7 +92,7 @@
     clang
     rustup
     nixd
-    nixfmt
+    nixfmt-rfc-style
     vscode
 
     firefox
