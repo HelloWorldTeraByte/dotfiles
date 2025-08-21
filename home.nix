@@ -43,7 +43,7 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".config/i3".source = ./i3/.config/i3;
+    ".config/i3".source = config.lib.file.mkOutOfStoreSymlink "/home/hwtb/dotfiles/i3/.config/i3";
     ".config/polybar".source = ./polybar/.config/polybar;
     ".config/rofi".source = ./rofi/.config/rofi;
     ".config/alacritty".source = ./alacritty/.config/alacritty;
