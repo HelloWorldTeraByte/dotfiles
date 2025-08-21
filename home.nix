@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  dotfilesDir = "${config.home.homeDirectory}/dotfiles";
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -43,12 +46,12 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".config/i3".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/i3/.config/i3";
-    ".config/polybar".source = ./polybar/.config/polybar;
-    ".config/rofi".source = ./rofi/.config/rofi;
-    ".config/alacritty".source = ./alacritty/.config/alacritty;
-    ".config/zellij".source = ./zellij/.config/zellij;
-    ".config/helix".source = ./helix/.config/helix;
+    ".config/i3".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/i3/.config/i3";
+    ".config/polybar".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/polybar/.config/polybar";
+    ".config/rofi".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/rofi/.config/rofi";
+    ".config/alacritty".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/alacritty/.config/alacritty";
+    ".config/zellij".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zellij/.config/zellij";
+    ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/helix/.config/helix";
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
