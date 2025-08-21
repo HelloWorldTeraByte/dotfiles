@@ -43,10 +43,10 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".config/i3".source = ./zellij/.config/i3;
-    ".config/polybar".source = ./zellij/.config/polybar;
-    ".config/rofi".source = ./zellij/.config/rofi;
-    ".config/alacritty".source = ./zellij/.config/alacritty;
+    ".config/i3".source = ./i3/.config/i3;
+    ".config/polybar".source = ./polybar/.config/polybar;
+    ".config/rofi".source = ./rofi/.config/rofi;
+    ".config/alacritty".source = ./alacritty/.config/alacritty;
     ".config/zellij".source = ./zellij/.config/zellij;
 
     # # You can also set the file content immediately.
