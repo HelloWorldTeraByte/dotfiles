@@ -56,6 +56,10 @@ in
       config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zellij/.config/zellij";
     ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/helix/.config/helix";
 
+    ".xinitrc".text = ''
+      exec i3
+    '';
+
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -88,6 +92,10 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  home.shellAliases = {
+    ls = "eza";
+  };
 
   programs.fish = {
     enable = true;

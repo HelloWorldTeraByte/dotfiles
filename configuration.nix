@@ -90,6 +90,10 @@
   services.xserver = {
     enable = true;
 
+    displayManager = {
+      startx.enable = true;
+    };
+
     windowManager.i3 = {
       enable = true;
     };
@@ -127,7 +131,11 @@
 
     ripgrep
     bat
+    eza
+    dust
+    fd
     bottom
+    difftastic
     arandr
 
     vim
