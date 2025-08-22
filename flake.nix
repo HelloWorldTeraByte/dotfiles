@@ -13,7 +13,7 @@
       lib = nixpkgs.lib;
     in {
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
+        hwtb-home0 = lib.nixosSystem {
           inherit system;
           modules = [
             ./configuration.nix
