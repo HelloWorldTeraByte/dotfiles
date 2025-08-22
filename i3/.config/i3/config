@@ -12,12 +12,9 @@ font pango:JetBrainsMono Nerd Font Mono 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# xss-lock grabs a logind suspend inhibit lock and will use slock to lock the
+# screen before suspend.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -173,6 +170,20 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+set $mode_system system mode
+mode "$mode_system" {
+    bindsym l mode "default"; exec --no-startup-id slock
+    bindsym e mode "default"; exec --no-startup-id i3-msg exit
+    bindsym s mode "default"; exec --no-startup-id systemctl suspend
+    bindsym h mode "default"; exec --no-startup-id systemctl hibernate
+    bindsym r mode "default"; exec --no-startup-id systemctl reboot
+    bindsym p mode "default"; exec --no-startup-id systemctl shutdown
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+s mode "$mode_system"
 
 set $rosewater #f5e0dc
 set $flamingo #f2cdcd
