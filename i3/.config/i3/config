@@ -185,6 +185,9 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+s mode "$mode_system"
 
+gaps inner 4px
+gaps outer 4px
+
 set $rosewater #f5e0dc
 set $flamingo #f2cdcd
 set $pink #f5c2e7
