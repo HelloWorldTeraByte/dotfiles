@@ -55,6 +55,7 @@ in
     ".config/zellij".source =
       config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zellij/.config/zellij";
     ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/helix/.config/helix";
+    ".config/picom".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/picom/.config/picom";
 
     ".xinitrc".text = ''
       exec i3

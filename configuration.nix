@@ -128,6 +128,7 @@
     polybarFull
     rofi
     feh
+    picom
 
     ripgrep
     bat
