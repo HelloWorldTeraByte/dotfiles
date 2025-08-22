@@ -93,12 +93,13 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.shellAliases = {
-    ls = "eza";
-  };
-
   programs.fish = {
     enable = true;
+
+    shellAbbrs = {
+      ls = "eza";
+    };
+
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
 
