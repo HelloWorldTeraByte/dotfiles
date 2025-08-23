@@ -51,6 +51,10 @@
 
   #### Hyprland ####
   programs.hyprland.enable = true;
+  programs.hyprlock.enable = true;
+  programs.waybar.enable = true;
+
+  services.hypridle.enable = true;
   # environment.sessionVariables.NIXOS_OZONE_WL = "1";
   #### Hyprland ####
 
@@ -87,7 +91,6 @@
     #### I3 ####
 
     #### Hyprland ####
-    waybar
     wofi
     hyprpaper
     #### Hyprland ####
