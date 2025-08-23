@@ -91,7 +91,7 @@
     #### I3 ####
 
     #### Hyprland ####
-    wofi
+    rofi-wayland
     hyprpaper
     #### Hyprland ####
 
