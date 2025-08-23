@@ -49,33 +49,48 @@
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
-  services.xserver = {
-    enable = true;
+  #### Hyprland ####
+  programs.hyprland.enable = true;
+  # environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  #### Hyprland ####
 
-    displayManager = {
-      startx.enable = true;
-    };
+  #### I3 ####
+  # services.xserver = {
+  #   enable = true;
 
-    windowManager.i3 = {
-      enable = true;
-    };
+  #   displayManager = {
+  #     startx.enable = true;
+  #   };
 
-    # Configure keymap in X11
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-  };
-  programs.slock.enable = true;
+  #   windowManager.i3 = {
+  #     enable = true;
+  #   };
+
+  #   # Configure keymap in X11
+  #   xkb = {
+  #     layout = "us";
+  #     variant = "";
+  #   };
+  # };
+  # programs.slock.enable = true;
+  #### I3 ####
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    xss-lock
-    polybarFull
-    rofi
-    feh
-    picom
+    #### I3 ####
+    # xss-lock
+    # polybarFull
+    # rofi
+    # feh
+    # picom
+    #### I3 ####
+
+    #### Hyprland ####
+    waybar
+    wofi
+    hyprpaper
+    #### Hyprland ####
 
     ripgrep
     bat
