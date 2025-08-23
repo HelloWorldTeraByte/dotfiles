@@ -2,7 +2,7 @@
 
 let
   dotfilesDir = "${config.home.homeDirectory}/dotfiles";
-  mkDotfilesSymlink = false;
+  mkDotfilesSymlink = true;
   mkDotfile =
     {
       mkSymlink,
