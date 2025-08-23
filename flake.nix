@@ -16,7 +16,7 @@
         hwtb-home0 = lib.nixosSystem {
           inherit system;
           modules = [
-            ./configuration.nix
+            ./hosts/hwtb-home0/configuration.nix
             home-manager.nixosModules.home-manager
             { home-manager.users.hwtb = ./home.nix; }
           ];
