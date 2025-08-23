@@ -2,6 +2,14 @@
 
 let
   dotfilesDir = "${config.home.homeDirectory}/dotfiles";
+  mkDotfilesSymlink = false;
+  mkDotfile =
+    {
+      mkSymlink,
+      path,
+      absPath,
+    }:
+    if mkSymlink then config.lib.file.mkOutOfStoreSymlink absPath else path;
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -46,16 +54,47 @@ in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".config/i3".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/i3/.config/i3";
-    ".config/polybar".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/polybar/.config/polybar";
-    ".config/rofi".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/rofi/.config/rofi";
-    ".config/alacritty".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/alacritty/.config/alacritty";
-    ".config/zellij".source =
-      config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zellij/.config/zellij";
-    ".config/helix".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/helix/.config/helix";
-    ".config/picom".source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/picom/.config/picom";
+    ".config/i3".source = mkDotfile {
+      mkSymlink = mkDotfilesSymlink;
+      path = ./i3/.config/i3;
+      absPath = "${dotfilesDir}/i3/.config/i3";
+    };
+
+    ".config/polybar".source = mkDotfile {
+      mkSymlink = mkDotfilesSymlink;
+      path = ./polybar/.config/polybar;
+      absPath = "${dotfilesDir}/polybar/.config/polybar";
+    };
+
+    ".config/rofi".source = mkDotfile {
+      mkSymlink = mkDotfilesSymlink;
+      path = ./rofi/.config/rofi;
+      absPath = "${dotfilesDir}/rofi/.config/rofi";
+    };
+
+    ".config/alacritty".source = mkDotfile {
+      mkSymlink = mkDotfilesSymlink;
+      path = ./alacritty/.config/alacritty;
+      absPath = "${dotfilesDir}/alacritty/.config/alacritty";
+    };
+
+    ".config/zellij".source = mkDotfile {
+      mkSymlink = mkDotfilesSymlink;
+      path = ./zellij/.config/zellij;
+      absPath = "${dotfilesDir}/zellij/.config/zellij";
+    };
+
+    ".config/helix".source = mkDotfile {
+      mkSymlink = mkDotfilesSymlink;
+      path = ./helix/.config/helix;
+      absPath = "${dotfilesDir}/helix/.config/helix";
+    };
+
+    ".config/picom".source = mkDotfile {
+      mkSymlink = mkDotfilesSymlink;
+      path = ./picom/.config/picom;
+      absPath = "${dotfilesDir}/picom/.config/picom";
+    };
 
     ".xinitrc".text = ''
       exec i3
