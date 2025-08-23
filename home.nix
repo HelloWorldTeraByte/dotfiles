@@ -145,6 +145,9 @@ in
 
     shellAbbrs = {
       ls = "eza";
+      gs = "git status";
+      gd = "git diff";
+      gds = "git diff --staged";
     };
 
     interactiveShellInit = ''
