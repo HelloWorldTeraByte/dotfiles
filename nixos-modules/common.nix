@@ -110,13 +110,13 @@
         dust
         fd
         bottom
+        fzf
         difftastic
-
         vim
         git
+
         alacritty
         zellij
-
         gcc
         clang
         clang-tools
@@ -145,6 +145,7 @@
       ];
 
     programs.fish.enable = true;
+    programs.zoxide.enable = true;
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.

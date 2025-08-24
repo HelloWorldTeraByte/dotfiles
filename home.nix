@@ -150,6 +150,13 @@ in
 
     shellAbbrs = {
       ls = "eza";
+      cd = "z";
+      cdi = "zi";
+      cat = "bat";
+
+      hxf = ''hx $(fzf -m --preview="bat --color=always {}")'';
+      fzfp = ''fzf --multi --preview="bat --color=always {}"'';
+
       gs = "git status";
       gd = "git diff";
       gds = "git diff --staged";
