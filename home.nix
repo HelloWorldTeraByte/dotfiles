@@ -155,6 +155,7 @@ in
 
     shellAbbrs = {
       ls = "eza";
+      l = "eza -al";
       cd = "z";
       cdi = "zi";
       cat = "bat";
