@@ -69,6 +69,11 @@ in
       path = ./dunst/.config/dunst;
       absPath = "${dotfilesDir}/dunst/.config/dunst";
     };
+    ".config/walker".source = mkDotfile {
+      mkSymlink = mkDotfilesSymlink;
+      path = ./walker/.config/walker;
+      absPath = "${dotfilesDir}/walker/.config/walker";
+    };
 
     ".config/i3".source = mkDotfile {
       mkSymlink = mkDotfilesSymlink;

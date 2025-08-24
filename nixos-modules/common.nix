@@ -129,7 +129,7 @@
         firefox
       ]
       ++ lib.optionals config.common.hyprlandEnable [
-        rofi-wayland
+        walker
         hyprpaper
         dunst
         grim
