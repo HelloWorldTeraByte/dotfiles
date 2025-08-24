@@ -18,20 +18,20 @@
     ],
     // Modules configuration
     "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
         "format": "{icon}",
         "format-icons": {
             "urgent": "",
-            "focused": "",
+            "special": "",
+            "empty": "",
             "default": ""
+        },
+        "persistent-workspaces": {
+             "*": 5
         }
     },
     "clock": {
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%Y/%m/%d %H:%M}",
     },
     "cpu": {
         "format": "{usage}% ",
