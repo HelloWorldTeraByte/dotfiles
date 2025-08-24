@@ -64,6 +64,11 @@ in
       path = ./waybar/.config/waybar;
       absPath = "${dotfilesDir}/waybar/.config/waybar";
     };
+    ".config/dunst".source = mkDotfile {
+      mkSymlink = mkDotfilesSymlink;
+      path = ./dunst/.config/dunst;
+      absPath = "${dotfilesDir}/dunst/.config/dunst";
+    };
 
     ".config/i3".source = mkDotfile {
       mkSymlink = mkDotfilesSymlink;

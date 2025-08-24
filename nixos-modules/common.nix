@@ -129,6 +129,7 @@
       ++ lib.optionals config.common.hyprlandEnable [
         rofi-wayland
         hyprpaper
+        dunst
       ]
       ++ lib.optionals config.common.i3Enable [
         xss-lock
