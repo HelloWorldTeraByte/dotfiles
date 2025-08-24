@@ -119,6 +119,8 @@
 
         gcc
         clang
+        clang-tools
+        cmake
         rustup
         nixd
         nixfmt-rfc-style
