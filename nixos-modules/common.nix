@@ -132,6 +132,8 @@
         rofi-wayland
         hyprpaper
         dunst
+        grim
+        slurp
       ]
       ++ lib.optionals config.common.i3Enable [
         xss-lock
