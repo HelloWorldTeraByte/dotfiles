@@ -166,6 +166,8 @@ in
       gs = "git status";
       gd = "git diff";
       gds = "git diff --staged";
+      ga = "git add";
+      gc = "git commit -m ";
     };
 
     interactiveShellInit = ''

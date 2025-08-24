@@ -23,7 +23,7 @@ window#waybar.hidden {
     background: alpha(@surface0,.6);
 }
 .modules-center {
-    padding: 5px;
+    padding: 0px;
     margin: 5 5 0 5;
     border-radius: 10px;
     background: alpha(@surface0,.6);
