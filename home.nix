@@ -154,7 +154,7 @@ in
       cdi = "zi";
       cat = "bat";
 
-      hxf = ''hx $(fzf -m --preview="bat --color=always {}")'';
+      hxf = ''hx $(fzf --multi --preview="bat --color=always {}")'';
       fzfp = ''fzf --multi --preview="bat --color=always {}"'';
 
       gs = "git status";
