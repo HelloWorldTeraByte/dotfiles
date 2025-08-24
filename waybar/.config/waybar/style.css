@@ -18,19 +18,19 @@ window#waybar.hidden {
 
 .modules-left {
     padding: 5px;
-    margin: 5 5 5 5;
+    margin: 5 5 0 5;
     border-radius: 10px;
     background: alpha(@surface0,.6);
 }
 .modules-center {
     padding: 5px;
-    margin: 5 5 5 5;
+    margin: 5 5 0 5;
     border-radius: 10px;
     background: alpha(@surface0,.6);
 }
 .modules-right {
     padding: 5px;
-    margin: 5 5 5 5;
+    margin: 5 5 0 5;
     border-radius: 10px;
     background: alpha(@surface0,.6);
 }
