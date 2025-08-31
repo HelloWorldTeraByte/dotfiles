@@ -112,7 +112,6 @@ in
       absPath = "${dotfilesDir}/helix/.config/helix";
     };
 
-
     ".xinitrc".text = ''
       exec i3
     '';
@@ -167,7 +166,9 @@ in
       gd = "git diff";
       gds = "git diff --staged";
       ga = "git add";
-      gc = "git commit -m ";
+      gc = "git commit -m";
+      gr = "git restore";
+      grs = "git restore --staged";
     };
 
     interactiveShellInit = ''
@@ -201,5 +202,11 @@ in
       set fish_pager_color_completion cdd6f4
       set fish_pager_color_description 6c7086
     '';
+  };
+
+  programs.git = {
+    enable = true;
+
+    extraConfig.init.defaultBranch = "main";
   };
 }

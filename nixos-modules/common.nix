@@ -117,14 +117,22 @@
 
         alacritty
         zellij
+        vscode
+
         gcc
         clang
         clang-tools
         cmake
+
         rustup
+
+        python313
+        uv
+        black
+        python313Packages.python-lsp-server
+
         nixd
         nixfmt-rfc-style
-        vscode
 
         firefox
       ]

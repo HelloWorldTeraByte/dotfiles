@@ -2,3 +2,15 @@
 name = "python"
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
+
+# [language-server.pylsp.config]
+# pylsp.plugins.pylint.enabled = true
+# pylsp.plugins.pylint.args = ["--disable=missing-function-docstring", "--disable=missing-class-docstring", "--disable=missing-module-docstring"]
+# pylsp.plugins.flake8.enabled = false
+# pylsp.plugins.rope.enabled = false
+# pylsp.plugins.pyflakes.enabled = false
+# pylsp.plugins.mccabe.enabled = false
+# pylsp.plugins.pycodestyle.enabled = false
+# pylsp.plugins.pydocstyle.enabled = false
+# pylsp.plugins.autopep8.enabled = false
+# pylsp.plugins.yapf.enabled = false
