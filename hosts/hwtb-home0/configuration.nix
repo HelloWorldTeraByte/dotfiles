@@ -45,5 +45,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  hardware.nvidia-container-toolkit.enable =  true;
+
   networking.hostName = "hwtb-home0";
 }

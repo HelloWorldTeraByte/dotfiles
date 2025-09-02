@@ -60,6 +60,7 @@
       extraGroups = [
         "networkmanager"
         "wheel"
+        "docker"
       ];
       packages = with pkgs; [ ];
       shell = pkgs.fish;
@@ -77,6 +78,7 @@
     environment.sessionVariables = lib.mkIf config.common.hyprlandEnable {
       NIXOS_OZONE_WL = "1";
     };
+    programs.xwayland.enable = true;
     #### Hyprland ####
 
     #### I3 ####
@@ -154,6 +156,8 @@
 
     programs.fish.enable = true;
     programs.zoxide.enable = true;
+
+    virtualisation.docker.enable = true;
 
     programs.virt-manager.enable = true;
     users.groups.libvirtd.members = [ "hwtb" ];
