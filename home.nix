@@ -224,6 +224,10 @@ in
       name = "Papirus";
       package = pkgs.papirus-icon-theme;
     };
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+    };
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
   };
 
@@ -236,5 +240,13 @@ in
         icon-theme = "Papirus";
       };
     };
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 16;
   };
 }
