@@ -137,6 +137,8 @@
         nixfmt-rfc-style
 
         firefox
+        nautilus
+        mpv
       ]
       ++ lib.optionals config.common.hyprlandEnable [
         walker
@@ -156,6 +158,8 @@
 
     programs.fish.enable = true;
     programs.zoxide.enable = true;
+
+    services.udisks2.enable = true;
 
     virtualisation.docker.enable = true;
 
