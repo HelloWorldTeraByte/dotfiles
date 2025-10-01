@@ -169,6 +169,8 @@ in
       gc = "git commit -m";
       gr = "git restore";
       grs = "git restore --staged";
+      gps = "git push";
+      gpl = "git pull";
     };
 
     interactiveShellInit = ''

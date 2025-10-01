@@ -60,6 +60,7 @@
       extraGroups = [
         "networkmanager"
         "wheel"
+        "disk"
         "docker"
       ];
       packages = with pkgs; [ ];
@@ -137,8 +138,12 @@
         nixfmt-rfc-style
 
         firefox
+        brave
         nautilus
         mpv
+        gnome-sound-recorder
+        snapshot
+        rpi-imager
       ]
       ++ lib.optionals config.common.hyprlandEnable [
         walker
@@ -185,6 +190,10 @@
     # networking.firewall.allowedUDPPorts = [ ... ];
     # Or disable the firewall altogether.
     # networking.firewall.enable = false;
+    networking.firewall.extraCommands = ''
+      iptables -A nixos-fw -p udp -d 224.0.0.0/4 -j ACCEPT
+      iptables -A nixos-fw -p udp -s 224.0.0.0/4 -j ACCEPT
+    '';
 
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions
