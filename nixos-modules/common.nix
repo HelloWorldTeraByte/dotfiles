@@ -121,6 +121,7 @@
         alacritty
         zellij
         vscode
+        devcontainer
 
         gcc
         clang
@@ -144,6 +145,9 @@
         gnome-sound-recorder
         snapshot
         rpi-imager
+        inkscape
+        blender
+        kdePackages.kdenlive
       ]
       ++ lib.optionals config.common.hyprlandEnable [
         walker
