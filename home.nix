@@ -174,6 +174,8 @@ in
     };
 
     interactiveShellInit = ''
+      set -gx UID (id -u)
+
       set fish_greeting # Disable greeting
 
       # Catppuccin Mocha
