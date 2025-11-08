@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  osConfig,
+  ...
+}:
 
 let
   dotfilesDir = "${config.home.homeDirectory}/dotfiles";
@@ -175,6 +180,10 @@ in
 
     interactiveShellInit = ''
       set -gx UID (id -u)
+
+      set -gx ANDROID_HOME "${osConfig.android.sdkPath}";
+      set -gx ANDROID_NDK_ROOT "${osConfig.android.sdkPath}/ndk-bundle";
+      set -gx GRADLE_OPTS "-Dorg.gradle.project.android.aapt2FromMavenOverride=${osConfig.android.sdkPath}/build-tools/${osConfig.android.buildToolVersion}/aapt2";
 
       set fish_greeting # Disable greeting
 

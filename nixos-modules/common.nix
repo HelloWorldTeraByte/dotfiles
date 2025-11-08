@@ -6,6 +6,12 @@
 }:
 
 {
+  imports = [
+    ./bluetooth.nix
+    ./creative.nix
+    ./android.nix
+  ];
+
   options = {
     common.i3Enable = lib.mkOption {
       type = lib.types.bool;
@@ -62,6 +68,7 @@
         "wheel"
         "disk"
         "docker"
+        "adbusers"
       ];
       packages = with pkgs; [ ];
       shell = pkgs.fish;
@@ -76,9 +83,12 @@
 
     services.hypridle.enable = config.common.hyprlandEnable;
 
-    environment.sessionVariables = lib.mkIf config.common.hyprlandEnable {
-      NIXOS_OZONE_WL = "1";
-    };
+    environment.sessionVariables = lib.mkMerge [
+      (lib.mkIf config.common.hyprlandEnable {
+        NIXOS_OZONE_WL = "1";
+      })
+    ];
+
     programs.xwayland.enable = true;
     #### Hyprland ####
 
@@ -142,12 +152,10 @@
         brave
         nautilus
         mpv
+        pavucontrol
         gnome-sound-recorder
         snapshot
         rpi-imager
-        inkscape
-        blender
-        kdePackages.kdenlive
       ]
       ++ lib.optionals config.common.hyprlandEnable [
         walker
