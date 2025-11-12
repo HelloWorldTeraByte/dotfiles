@@ -127,6 +127,7 @@
         difftastic
         vim
         git
+        dos2unix
 
         alacritty
         zellij
