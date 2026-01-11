@@ -168,8 +168,8 @@ in
       fzfp = ''fzf --multi --preview="bat --color=always {}"'';
 
       gs = "git status";
-      gd = "git diff";
-      gds = "git diff --staged";
+      gd = "git -c diff.external=difft diff";
+      gds = "git -c diff.external=difft diff --staged";
       ga = "git add";
       gc = "git commit -m";
       gr = "git restore";

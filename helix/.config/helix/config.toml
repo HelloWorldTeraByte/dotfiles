@@ -21,3 +21,4 @@ C-l = "jump_view_right"
 
 [editor.lsp]
 display-inlay-hints = true
+inlay-hints-length-limit = 24

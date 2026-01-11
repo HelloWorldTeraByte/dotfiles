@@ -150,7 +150,7 @@
         nixfmt-rfc-style
 
         firefox
-        brave
+        librewolf
         nautilus
         mpv
         pavucontrol
