@@ -149,6 +149,7 @@
         nixd
         nixfmt-rfc-style
 
+        unstable.antigravity
         firefox
         librewolf
         nautilus
