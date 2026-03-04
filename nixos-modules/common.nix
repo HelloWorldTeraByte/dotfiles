@@ -59,6 +59,8 @@
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
+    users.groups.plugdev = { };
+
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.hwtb = {
       isNormalUser = true;
@@ -69,6 +71,8 @@
         "disk"
         "docker"
         "adbusers"
+        "dialout"
+        "plugdev"
       ];
       packages = with pkgs; [ ];
       shell = pkgs.fish;
@@ -128,6 +132,8 @@
         vim
         git
         dos2unix
+        cloc
+        hexedit
 
         alacritty
         zellij
@@ -158,6 +164,12 @@
         gnome-sound-recorder
         snapshot
         rpi-imager
+        usbutils
+        gparted
+        kdePackages.okular
+        gimp
+        kicad
+        stm32cubemx
       ]
       ++ lib.optionals config.common.hyprlandEnable [
         walker
@@ -185,6 +197,12 @@
     programs.virt-manager.enable = true;
     users.groups.libvirtd.members = [ "hwtb" ];
     virtualisation.libvirtd.enable = true;
+
+    services.udev.packages = [ pkgs.openocd ];
+    services.udev.extraRules = ''
+      # Texas Instruments MSP-FET
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="2047", ATTRS{idProduct}=="0014", MODE="0666", GROUP="plugdev"
+    '';
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
