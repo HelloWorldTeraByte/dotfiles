@@ -45,7 +45,19 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  hardware.nvidia-container-toolkit.enable =  true;
+  hardware.nvidia-container-toolkit.enable = true;
 
   networking.hostName = "hwtb-home0";
+
+  networking.interfaces = {
+    enp5s0 = {
+      useDHCP = false;
+      ipv4.addresses = [
+        {
+          address = "10.20.30.5";
+          prefixLength = 24;
+        }
+      ];
+    };
+  };
 }
