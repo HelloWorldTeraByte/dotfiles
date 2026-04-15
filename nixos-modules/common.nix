@@ -170,6 +170,7 @@
         gimp
         kicad
         stm32cubemx
+        unstable.tigervnc
       ]
       ++ lib.optionals config.common.hyprlandEnable [
         walker
@@ -202,6 +203,7 @@
     services.udev.extraRules = ''
       # Texas Instruments MSP-FET
       SUBSYSTEM=="usb", ATTRS{idVendor}=="2047", ATTRS{idProduct}=="0014", MODE="0666", GROUP="plugdev"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="2047", ATTRS{idProduct}=="0013", MODE="0666", GROUP="plugdev"
     '';
 
     # Some programs need SUID wrappers, can be configured further or are

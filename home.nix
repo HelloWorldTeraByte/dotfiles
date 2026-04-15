@@ -218,7 +218,7 @@ in
   programs.git = {
     enable = true;
 
-    extraConfig.init.defaultBranch = "main";
+    settings.init.defaultBranch = "main";
   };
 
   services.udiskie = {
